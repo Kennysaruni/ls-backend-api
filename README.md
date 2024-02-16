@@ -1,25 +1,34 @@
-# README
+# SwiftLink API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+SwiftLink is a URL shortener API that allows users to shorten long URLs into more manageable and shareable links. This API provides endpoints for creating, retrieving, updating, and deleting shortened links.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+To get started with SwiftLink, follow these steps:
 
-* System dependencies
+1. Clone the repository to your local machine.
+2. Install dependencies.
+3. Set up the database.
+4. Start the Rails server.
 
-* Configuration
+## Usage
+The SwiftLink API has the following end points
 
-* Database creation
+## Endpoints
 
-* Database initialization
+### Create a Shortened Link
 
-* How to run the test suite
+- **URL:** `/s/:slug`
+- **Method:** `POST`
+- **Description:** Creates a shortened link.
+- **Parameters:**
+  - `slug` (optional): The custom slug for the shortened link. If not provided, a random slug will be generated.
+  - `url` (required): The long URL to be shortened.
+- **Example:**
+  ```bash
+  curl -X POST -H "Content-Type: application/json" -d '{"url":"https://example.com"}' http://localhost:3000/s/:slug
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
-# ls-backend-api
+
+

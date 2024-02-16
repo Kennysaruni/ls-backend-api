@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   get '/s/:slug', to: 'links#show', as: :short
 
   # Route for deleting an elready existing link
-  delete '/s/slug', to 'links#destroy'
+  delete '/s/slug', to: 'links#destroy'
 end

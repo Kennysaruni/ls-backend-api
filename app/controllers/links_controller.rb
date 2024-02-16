@@ -8,7 +8,16 @@ class LinksController < ApplicationController
 
   # GET /links/1 or /links/1.json
   def show
+    if link.nil?
+      render 'errors/404', status: 404
+    else
+      # Updates the clicked counter by 1 everytime the link is clicked
+      link.update(clicked: link.clicked + 1) 
+      # Ensure you're redirecting to the full URL including the host
+      redirect_to link.url
+    end
   end
+  
 
   # GET /links/new
   def new

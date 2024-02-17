@@ -37,7 +37,7 @@ class Link < ApplicationRecord
 
         # If the slug is taken, add new characters to it
         # Also generates a random slug on the chance that there is no slug present
-        Link.shorten(url, slug+SecureRandom.uuid[0..5])
+        Link.shorten(url, slug+SecureRandom.uuid[0..7])
     end
 
 end

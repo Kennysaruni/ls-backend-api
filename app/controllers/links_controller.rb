@@ -16,6 +16,7 @@ class LinksController < ApplicationController
     else
       # Updates the clicked counter by 1 everytime the link is clicked
       link.update(clicked: link.clicked.to_i + 1) 
+      
       # Ensure you're redirecting to the full URL including the host
       redirect_to link.url, allow_other_host: true
     end

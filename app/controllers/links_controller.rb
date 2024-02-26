@@ -40,7 +40,7 @@ class LinksController < ApplicationController
     # Find the link by slug if the link is present
     link = Link.find_by(slug: params[:slug])
     # If the link isnt present show the error 'Link not found'
-    if link.nil
+    if link.nil?
       render json: {error: 'Link not found'}, status: :not_found
     else
       # If link is present in the database, destroy it

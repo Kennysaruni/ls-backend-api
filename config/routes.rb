@@ -11,5 +11,13 @@ Rails.application.routes.draw do
   # Route for deleting an elready existing link
   delete '/s/:slug', to: 'links#destroy'
 
+  #For User Login
+  post '/login', to: 'auth#create'
+
+  #Route for accesing user profile
+  post '/profile', to: 'users#profile'
+
+  resources :users, only: [:create]
+
 
 end

@@ -1,6 +1,6 @@
 class Link < ApplicationRecord
     before_validation :generate_slug
-
+    belongs_to :user ,optional:true
     # Validates that there is a URL present 
     validates_presence_of :url
     #generates regular expressions ensuring that the link begins with either 'http' or 'https' 
@@ -13,6 +13,7 @@ class Link < ApplicationRecord
     # Assuming that no slug is greater than 255 characters and not less than 3 
     # The slug is the generated key for the url, eg 'https://me.com/saruni' 'saruni' is the slug
     validates_length_of :slug, within: (3..255), on: :create, message: 'too long'
+
 
     def generate_slug
         self.slug = SecureRandom.uuid[0..5] if self.slug.nil? || self.slug.empty?
@@ -31,7 +32,7 @@ class Link < ApplicationRecord
         link =Link.where(url: url, slug: slug).first
         return link.short if link
 
-        # Creates a new URL
+        # Creates a new URL 
         link= Link.new(url: url, slug: slug)
         return link.short if link.save
 

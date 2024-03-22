@@ -1,5 +1,6 @@
 class LinksController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create, :show, :destroy]
+  skip_before_action :authorized
 
   # GET /links or /links.json
   def index

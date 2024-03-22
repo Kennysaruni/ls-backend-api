@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :verify_authenticity_token, only: [:create]
+    skip_before_action :verify_authenticity_token, only: [:create, :profile]
     skip_before_action :authorized, only: [:create]
 
     def create
@@ -10,6 +10,10 @@ class UsersController < ApplicationController
         else
             render json: {error: user.errors.full_messages}, status: :unprocessable_entity
         end
+    end
+
+    def profile
+        render json: {user: UserSerializer.new(current_user)}, status: :accepted
     end
 
     private

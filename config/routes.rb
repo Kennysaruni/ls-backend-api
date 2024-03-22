@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   post '/login', to: 'auth#create'
 
   #Route for accesing user profile
-  post '/profile', to: 'users#profile'
+  get '/profile', to: 'users#profile'
 
   resources :users, only: [:create]
 
